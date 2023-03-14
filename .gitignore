@@ -1,0 +1,10 @@
+bin/
+obj/
+/packages/
+
+# Jetbrains tools
+
+.idea
+riderModule.iml
+/_ReSharper.Caches/
+**/*csproj*
