@@ -38,7 +38,7 @@ namespace Koi.Subnautica.ImprovedScanInfo.core
 
             Harmony.PatchAll();
 
-            Logger = new Logger(ModConstants.Name, ModConstants.Version, base.Logger);
+            Logger = new Logger(ModConstants.Version, base.Logger);
 
             Translation = new(
                 $"{Path.GetDirectoryName(typeof(ModPlugin).Assembly.Location)}/{ModConstants.LanguagesFolder}",

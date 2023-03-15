@@ -3,23 +3,22 @@
 namespace Koi.Subnautica.ImprovedStorageInfo.core
 {
     /// <summary>
-    /// The root harmony patched for Storage Container game object.
+    /// The root harmony patched for Escape Pod game object.
     /// </summary>
-    [HarmonyPatch(typeof(StorageContainer))]
-    public static class StorageContainerPatches
+    [HarmonyPatch(typeof(EscapePod))]
+    public static class EscapePodPatches
     {
         /// <summary>
-        /// A post-fix patch on StorageContainer.OnHandHover.
+        /// A post-fix patch on EscapePod.StorageHover.
         /// </summary>
-        /// <param name="__instance">The storage container</param>
-        [HarmonyPatch(nameof(StorageContainer.OnHandHover))]
+        [HarmonyPatch(nameof(EscapePod.StorageHover))]
         [HarmonyPostfix]
         // ReSharper disable once InconsistentNaming
-        public static void OnHandHover(StorageContainer __instance)
+        public static void StorageHover(EscapePod __instance)
         {
             if (!ModPlugin.ConfigEnabled.Value) return;
 
-            var itemContainer = ContainerUtils.GetItemContainer(__instance);
+            var itemContainer = ContainerUtils.GetItemContainer(__instance.storageContainer);
 
             HandReticle.main.SetText(
                 HandReticle.TextType.HandSubscript,

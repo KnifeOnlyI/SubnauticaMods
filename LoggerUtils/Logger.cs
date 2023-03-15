@@ -10,11 +10,6 @@ namespace Koi.Subnautica.LoggerUtils
         private readonly ManualLogSource _handle;
 
         /// <summary>
-        /// The mod name to use in error logs.
-        /// </summary>
-        private readonly string _modName;
-
-        /// <summary>
         /// The mod version to use in error logs.
         /// </summary>
         private readonly string _modVersion;
@@ -22,12 +17,10 @@ namespace Koi.Subnautica.LoggerUtils
         /// <summary>
         /// Create a new instance.
         /// </summary>
-        /// <param name="modName">The folder that contains all translation files</param>
         /// <param name="modVersion">The mod name to use in error logs</param>
         /// <param name="handle">The logger to use</param>
-        public Logger(string modName, string modVersion, ManualLogSource handle)
+        public Logger(string modVersion, ManualLogSource handle)
         {
-            _modName = modName;
             _modVersion = modVersion;
             _handle = handle;
         }
@@ -93,7 +86,7 @@ namespace Koi.Subnautica.LoggerUtils
         /// <returns>The corresponding formatted log message</returns>
         private string GetFormattedLogMessage(string message)
         {
-            return $"{_modName} (v{_modVersion}) : {message}";
+            return $"(v{_modVersion}) : {message}";
         }
     }
 }

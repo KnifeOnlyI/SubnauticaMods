@@ -1,7 +1,8 @@
-﻿using BepInEx;
+﻿using System.IO;
+using BepInEx;
 using BepInEx.Configuration;
-using BepInEx.Logging;
 using HarmonyLib;
+using Koi.Subnautica.LoggerUtils;
 
 namespace Koi.Subnautica.ImprovedStorageInfo.core
 {
@@ -10,7 +11,15 @@ namespace Koi.Subnautica.ImprovedStorageInfo.core
     {
         private static readonly Harmony Harmony = new(ModConstants.Guid);
 
-        private new static ManualLogSource Logger { get; set; }
+        /// <summary>
+        /// The logger.
+        /// </summary>
+        public new static Logger Logger { get; private set; }
+
+        /// <summary>
+        /// To manage translations.
+        /// </summary>
+        public static Translation.Translation Translation { get; private set; }
 
         /// <summary>
         /// The configuration entry to indicates if the mod must be enabled or not.
@@ -23,46 +32,12 @@ namespace Koi.Subnautica.ImprovedStorageInfo.core
 
             Harmony.PatchAll();
 
-            Logger = base.Logger;
+            Logger = new Logger(ModConstants.Version, base.Logger);
 
-            LogInfo("Mod loaded successfully");
-        }
-
-        /// <summary>
-        /// Log an info.
-        /// </summary>
-        /// <param name="message">The message to log</param>
-        private static void LogInfo(string message)
-        {
-            Logger.LogInfo(GetFormattedLogMessage(message));
-        }
-
-        /// <summary>
-        /// Log a warning.
-        /// </summary>
-        /// <param name="message">The message to log</param>
-        public static void LogWarning(string message)
-        {
-            Logger.LogWarning(GetFormattedLogMessage(message));
-        }
-
-        /// <summary>
-        /// Log an error.
-        /// </summary>
-        /// <param name="message">The message to log</param>
-        public static void LogError(string message)
-        {
-            Logger.LogError(GetFormattedLogMessage(message));
-        }
-
-        /// <summary>
-        /// Get a formatted log message.
-        /// </summary>
-        /// <param name="message">The message</param>
-        /// <returns>The corresponding formatted log message</returns>
-        public static string GetFormattedLogMessage(string message)
-        {
-            return $"{ModConstants.Name} (v{ModConstants.Version}) : {message}";
+            Translation = new(
+                $"{Path.GetDirectoryName(typeof(ModPlugin).Assembly.Location)}/{ModConstants.LanguagesFolder}",
+                Logger
+            );
         }
     }
 }

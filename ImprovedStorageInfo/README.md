@@ -30,6 +30,7 @@ BepInEx configuration menu (to enable/disable show information about improved st
 - System
 - System.Core
 - Assembly-CSharp
+- Assembly-CSharp-firstpass
 - UnityEngine (Can be founded in subnautica game folder)
 - UnityEngine.CoreModule (Can be founded in subnautica game folder)
 - 0Harmony (Need Harmony plugin)
