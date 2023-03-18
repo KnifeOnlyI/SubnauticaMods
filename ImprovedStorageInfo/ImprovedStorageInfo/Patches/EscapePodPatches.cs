@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 
-namespace Koi.Subnautica.ImprovedStorageInfo.core
+namespace Koi.Subnautica.ImprovedStorageInfo.Patches
 {
     /// <summary>
     /// The root harmony patched for Escape Pod game object.
@@ -16,13 +16,13 @@ namespace Koi.Subnautica.ImprovedStorageInfo.core
         // ReSharper disable once InconsistentNaming
         public static void StorageHover(EscapePod __instance)
         {
-            if (!ModPlugin.ConfigEnabled.Value) return;
+            if (!ModConfig.ConfigEnabled.Value) return;
 
-            var itemContainer = ContainerUtils.GetItemContainer(__instance.storageContainer);
+            var itemContainer = Utils.ContainerUtils.GetItemContainer(__instance.storageContainer);
 
             HandReticle.main.SetText(
                 HandReticle.TextType.HandSubscript,
-                ContainerUtils.GetCustomInteractText(itemContainer),
+                Utils.ContainerUtils.GetCustomInteractText(itemContainer),
                 false
             );
         }

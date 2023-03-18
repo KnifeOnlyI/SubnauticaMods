@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Koi.Subnautica.ImprovedStorageInfo.core;
+namespace Koi.Subnautica.ImprovedStorageInfo.Utils;
 
 /// <summary>
 /// Utilitary class for all containers.
@@ -18,7 +18,7 @@ public static class ContainerUtils
 
         if (item == null)
         {
-            ModPlugin.Logger.LogWarning("Container don't have an itemsContainer");
+            ModLogger.LogWarning("Container don't have an itemsContainer");
         }
 
         return item;
@@ -31,46 +31,44 @@ public static class ContainerUtils
     /// <returns>The custom interact text</returns>
     public static string GetCustomInteractText(ItemsContainer itemContainer)
     {
-        var customSubscriptText = string.Empty;
-
         if (itemContainer == null)
         {
-            ModPlugin.Logger.LogWarning("Container is null, cannot set a custom interact text");
+            ModLogger.LogWarning("Container is null, cannot set a custom interact text");
 
-            return customSubscriptText;
+            return string.Empty;
         }
 
         var containerCapacity = GetContainerCapacity(itemContainer);
         var nbItemsInContainer = GetOccupiedSlotsInContainer(itemContainer);
 
-        var containerIsFull = nbItemsInContainer == containerCapacity;
         var containerIsEmpty = nbItemsInContainer == 0;
+        var containerIsFull = nbItemsInContainer == containerCapacity;
 
+        var translation = GetTranslation(containerIsEmpty, containerIsFull);
+
+        if (translation == null) return string.Empty;
+
+        return containerIsEmpty
+            ? string.Format(translation, containerCapacity)
+            : string.Format(translation, nbItemsInContainer, containerCapacity);
+    }
+
+    /// <summary>
+    /// Get the corresponding translation key based on the specified container data.
+    /// </summary>
+    /// <param name="containerIsEmpty">TRUE if the container is empty, FALSE othewise</param>
+    /// <param name="containerIsFull">TRUE if container is full, FALSE otherwise</param>
+    /// <returns>The corresponding translation</returns>
+    private static string GetTranslation(bool containerIsEmpty, bool containerIsFull)
+    {
         if (containerIsEmpty)
         {
-            customSubscriptText = ModPlugin.Translation.Format(
-                ModPlugin.Translation.Translate(ModConstants.ContainerEmptyTranslationKey),
-                containerCapacity
-            );
-        }
-        else if (containerIsFull)
-        {
-            customSubscriptText = ModPlugin.Translation.Format(
-                ModPlugin.Translation.Translate(ModConstants.ContainerFullTranslationKey),
-                containerCapacity,
-                containerCapacity
-            );
-        }
-        else
-        {
-            customSubscriptText = ModPlugin.Translation.Format(
-                ModPlugin.Translation.Translate(ModConstants.ContainerNotEmptyTranslationKey),
-                nbItemsInContainer,
-                containerCapacity
-            );
+            return ModTranslations.ContainerEmptyTranslation;
         }
 
-        return customSubscriptText;
+        return containerIsFull
+            ? ModTranslations.ContainerFullTranslation
+            : ModTranslations.ContainerNotEmptyTranslation;
     }
 
     /// <summary>

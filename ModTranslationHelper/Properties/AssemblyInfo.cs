@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("LoggerUtils")]
+[assembly: AssemblyTitle("ModTranslationHelper")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LoggerUtils")]
+[assembly: AssemblyProduct("ModTranslationHelper")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("AC81E3D4-5B86-4564-A974-DB63868AC7A7")]
+[assembly: Guid("7B19EA88-1EE1-4948-941A-99A400A48124")]
 
 // Version information for an assembly consists of the following four values:
 //

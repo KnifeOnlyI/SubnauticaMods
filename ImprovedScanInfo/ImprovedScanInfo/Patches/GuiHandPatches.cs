@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using HarmonyLib;
 
-namespace Koi.Subnautica.ImprovedScanInfo.core
+namespace Koi.Subnautica.ImprovedScanInfo.Patches
 {
     /// <summary>
     /// Contains all harmony patches for GUI Hand.
@@ -16,7 +16,7 @@ namespace Koi.Subnautica.ImprovedScanInfo.core
         [HarmonyPostfix]
         public static void OnUpdate()
         {
-            if (!ModPlugin.ConfigEnabled.Value) return;
+            if (!ModConfig.ConfigEnabled.Value) return;
 
             var scanTarget = PDAScanner.scanTarget;
             var entryData = PDAScanner.GetEntryData(scanTarget.techType);
@@ -25,7 +25,7 @@ namespace Koi.Subnautica.ImprovedScanInfo.core
 
             HandReticle.main.SetText(
                 HandReticle.TextType.HandSubscript,
-                ModPlugin.Translation.Translate(ModConstants.BlueprintAlreadySynthetized),
+                ModTranslations.BlueprintAlreadySynthetized,
                 false
             );
         }

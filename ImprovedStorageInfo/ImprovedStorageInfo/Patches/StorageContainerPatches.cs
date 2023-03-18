@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 
-namespace Koi.Subnautica.ImprovedStorageInfo.core
+namespace Koi.Subnautica.ImprovedStorageInfo.Patches
 {
     /// <summary>
     /// The root harmony patched for Storage Container game object.
@@ -17,13 +17,13 @@ namespace Koi.Subnautica.ImprovedStorageInfo.core
         // ReSharper disable once InconsistentNaming
         public static void OnHandHover(StorageContainer __instance)
         {
-            if (!ModPlugin.ConfigEnabled.Value) return;
+            if (!ModConfig.ConfigEnabled.Value) return;
 
-            var itemContainer = ContainerUtils.GetItemContainer(__instance);
+            var itemContainer = Utils.ContainerUtils.GetItemContainer(__instance);
 
             HandReticle.main.SetText(
                 HandReticle.TextType.HandSubscript,
-                ContainerUtils.GetCustomInteractText(itemContainer),
+                Utils.ContainerUtils.GetCustomInteractText(itemContainer),
                 false
             );
         }
