@@ -7,7 +7,6 @@ obj/
 .idea
 riderModule.iml
 /_ReSharper.Caches/
-**/*csproj*
 KOISubnauticaMods.sln.DotSettings.user
 
 # Windows tools
