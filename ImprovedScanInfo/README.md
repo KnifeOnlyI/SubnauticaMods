@@ -21,8 +21,7 @@ BepInEx configuration menu (to enable/disable show information about improved sc
 - UnityEngine.CoreModule (Can be founded in subnautica game folder)
 - 0Harmony (Need Harmony plugin)
 - BepInEx (Need BepInEx plugin)
-- LoggerUtils (Can be founded in the same solution)
-- Translation (Can be founded in the same solution)
+- ModTranslationHelper (Can be founded in the same solution)
 
 ### Github Project
 

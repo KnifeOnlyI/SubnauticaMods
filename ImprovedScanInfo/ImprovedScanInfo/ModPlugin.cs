@@ -18,7 +18,7 @@ namespace Koi.Subnautica.ImprovedScanInfo
         {
             ModLogger.Init(Logger);
             ModConfig.Init(Config);
-            ModEvents.Init();
+            ModTranslations.UpdateInGameTranslations();
 
             Harmony.PatchAll();
         }

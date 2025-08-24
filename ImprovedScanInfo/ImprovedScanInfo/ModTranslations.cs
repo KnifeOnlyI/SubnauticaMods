@@ -20,7 +20,7 @@ public static class ModTranslations
     private static readonly Translations Data = new(TranslationsFolder);
 
     /// <summary>
-    /// The translation for an empty container.
+    /// The translation for an already synthetized blueprint.
     /// </summary>
     private static string _blueprintAlreadySynthetized;
 
@@ -29,11 +29,24 @@ public static class ModTranslations
     /// </summary>
     public static string BlueprintAlreadySynthetized => _blueprintAlreadySynthetized;
 
+    public static void UpdateInGameTranslations()
+    {
+        if (!Language.isNotQuitting)
+        {
+            ModLogger.LogWarning("Application is quitting, can't use Language.main");
+            return;
+        }
+
+        SetLanguage(Language.main.GetCurrentLanguage());
+
+        UpdateBlueprintAlreadySynthetizedTranslation();
+    }
+
     /// <summary>
     /// Set the language.
     /// </summary>
     /// <param name="language">The language</param>
-    public static void SetLanguage(string language)
+    private static void SetLanguage(string language)
     {
         if (!Data.SetLanguage(language))
         {
@@ -86,9 +99,9 @@ public static class ModTranslations
     }
 
     /// <summary>
-    /// Update the translation for empty containers.
+    /// Update the translation for blueprint already synthetized.
     /// </summary>
-    public static void UpdateContainerEmptyTranslation()
+    private static void UpdateBlueprintAlreadySynthetizedTranslation()
     {
         UpdateTranslation(
             out _blueprintAlreadySynthetized,

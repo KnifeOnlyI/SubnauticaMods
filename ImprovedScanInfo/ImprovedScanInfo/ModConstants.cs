@@ -8,7 +8,7 @@
         public static class Meta
         {
             public const string Guid = "Koi.ImprovedScanInfo";
-            public const string Version = "1.1.0";
+            public const string Version = "1.2.0";
             public const string Name = "Improved Scan Info";
         }
 

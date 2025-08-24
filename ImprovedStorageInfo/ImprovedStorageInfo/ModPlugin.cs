@@ -14,12 +14,11 @@ public class ModPlugin : BaseUnityPlugin
     /// </summary>
     private static readonly Harmony Harmony = new(ModConstants.Meta.Guid);
 
-
     private void Awake()
     {
         ModLogger.Init(Logger);
         ModConfig.Init(Config);
-        ModEvents.Init();
+        ModTranslations.UpdateInGameTranslations();
 
         Harmony.PatchAll();
     }

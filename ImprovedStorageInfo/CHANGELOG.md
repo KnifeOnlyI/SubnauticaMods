@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.2.0] 2025-08-24
+
+### Functionnalities
+
+* Add Spanish translation (thanks to [Gonzy42](https://forums.nexusmods.com/profile/171739728-gonzy42/) !)
+
+### Bug Fix
+
+* Restored translation system (caused by game update 2025-08-12)
+
+### Technical
+
+* Upgrade .NET Framework (v4.7.1 -> to v4.8.1)
+
 ## [2.1.0] 2023-03-19
 
 ### Functionnalities

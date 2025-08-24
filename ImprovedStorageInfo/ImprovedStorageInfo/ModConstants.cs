@@ -8,7 +8,7 @@ public static class ModConstants
     public static class Meta
     {
         public const string Guid = "Koi.ImprovedStorageInfo";
-        public const string Version = "2.1.0";
+        public const string Version = "2.2.0";
         public const string Name = "Improved Storage Info";
     }
 

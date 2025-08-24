@@ -49,11 +49,26 @@ public static class ModTranslations
     /// </summary>
     public static string ContainerNotEmptyTranslation => _containerNotEmptyTranslation;
 
+    public static void UpdateInGameTranslations()
+    {
+        if (!Language.isNotQuitting)
+        {
+            ModLogger.LogWarning("Application is quitting, can't use Language.main");
+            return;
+        }
+
+        SetLanguage(Language.main.GetCurrentLanguage());
+
+        UpdateContainerEmptyTranslation();
+        UpdateContainerFullTranslation();
+        UpdateContainerNotEmptyTranslation();
+    }
+
     /// <summary>
     /// Set the language.
     /// </summary>
     /// <param name="language">The language</param>
-    public static void SetLanguage(string language)
+    private static void SetLanguage(string language)
     {
         if (!Data.SetLanguage(language))
         {
@@ -108,7 +123,7 @@ public static class ModTranslations
     /// <summary>
     /// Update the translation for empty containers.
     /// </summary>
-    public static void UpdateContainerEmptyTranslation()
+    private static void UpdateContainerEmptyTranslation()
     {
         UpdateTranslation(
             out _containerEmptyTranslation,
@@ -120,7 +135,7 @@ public static class ModTranslations
     /// <summary>
     /// Update the translation for full containers.
     /// </summary>
-    public static void UpdateContainerFullTranslation()
+    private static void UpdateContainerFullTranslation()
     {
         UpdateTranslation(
             out _containerFullTranslation,
@@ -132,7 +147,7 @@ public static class ModTranslations
     /// <summary>
     /// Update the translation for not empty containers.
     /// </summary>
-    public static void UpdateContainerNotEmptyTranslation()
+    private static void UpdateContainerNotEmptyTranslation()
     {
         UpdateTranslation(
             out _containerNotEmptyTranslation,
