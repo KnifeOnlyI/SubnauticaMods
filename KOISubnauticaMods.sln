@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModTranslationHelper", "Mod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImprovedScanInfo", "ImprovedScanInfo\ImprovedScanInfo.csproj", "{448A6C53-BB57-4310-ABE4-4CF7A87A67B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImprovedStorageInfo_BZ", "ImprovedStorageInfo_BZ\ImprovedStorageInfo_BZ.csproj", "{4944AA56-4ECB-4FCF-8EA3-C3892F3CB285}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImprovedScanInfo_BZ", "ImprovedScanInfo_BZ\ImprovedScanInfo_BZ.csproj", "{752E80D5-A2AF-451E-B797-F844E377D352}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,13 @@ Global
 		{448A6C53-BB57-4310-ABE4-4CF7A87A67B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{448A6C53-BB57-4310-ABE4-4CF7A87A67B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{448A6C53-BB57-4310-ABE4-4CF7A87A67B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4944AA56-4ECB-4FCF-8EA3-C3892F3CB285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4944AA56-4ECB-4FCF-8EA3-C3892F3CB285}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4944AA56-4ECB-4FCF-8EA3-C3892F3CB285}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4944AA56-4ECB-4FCF-8EA3-C3892F3CB285}.Release|Any CPU.Build.0 = Release|Any CPU
+		{752E80D5-A2AF-451E-B797-F844E377D352}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{752E80D5-A2AF-451E-B797-F844E377D352}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{752E80D5-A2AF-451E-B797-F844E377D352}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{752E80D5-A2AF-451E-B797-F844E377D352}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

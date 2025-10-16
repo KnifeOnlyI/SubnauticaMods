@@ -1,0 +1,5 @@
+﻿{
+  "ContainerEmpty": "Пусто (0 / {0})",
+  "ContainerFull": "Полностью заполнено ({0} / {1})",
+  "ContainerNotEmpty": "({0} / {1})"
+}
