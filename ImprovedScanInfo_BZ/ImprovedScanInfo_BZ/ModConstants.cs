@@ -1,4 +1,4 @@
-﻿namespace Koi.Subnautica.ImprovedScanInfo_BZ
+namespace Koi.Subnautica.ImprovedScanInfo_BZ
 {
     /// <summary>
     /// Contains all mode constants.
@@ -33,15 +33,9 @@
 
         public static class Translations
         {
-            public const string RootFolder = "assets/languages";
-
             public static class Keys
             {
-                public static class BlueprintAlreadySynthetized
-                {
-                    public const string Key = "BlueprintAlreadySynthetized";
-                    public const string DefaultValue = "Blueprint already synthethized";
-                }
+                public const string BlueprintAlreadySynthesized = "AlreadyUnlockedTooltip";
             }
         }
     }

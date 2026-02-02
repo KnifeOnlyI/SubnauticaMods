@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using HarmonyLib;
 
 namespace Koi.Subnautica.ImprovedScanInfo_BZ.Patches
@@ -25,8 +25,8 @@ namespace Koi.Subnautica.ImprovedScanInfo_BZ.Patches
 
             HandReticle.main.SetText(
                 HandReticle.TextType.HandSubscript,
-                ModTranslations.BlueprintAlreadySynthetized,
-                false
+                ModConstants.Translations.Keys.BlueprintAlreadySynthesized,
+                translate: true
             );
         }
 
