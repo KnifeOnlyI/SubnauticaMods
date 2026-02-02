@@ -1,4 +1,4 @@
-namespace Koi.Subnautica.ImprovedScanInfo_BZ
+﻿namespace Koi.Subnautica.ImprovedScanInfo_BZ
 {
     /// <summary>
     /// Contains all mode constants.
@@ -8,7 +8,7 @@ namespace Koi.Subnautica.ImprovedScanInfo_BZ
         public static class Meta
         {
             public const string Guid = "Koi.ImprovedScanInfo";
-            public const string Version = "1.2.0";
+            public const string Version = "2.0.0";
             public const string Name = "Improved Scan Info";
         }
 

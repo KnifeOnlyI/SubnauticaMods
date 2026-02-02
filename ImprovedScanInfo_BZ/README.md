@@ -24,4 +24,4 @@ BepInEx configuration menu (to enable/disable show information about improved sc
 
 ### Github Project
 
-The source code can be found here : https://github.com/KnifeOnlyI/SubnauticaMods/tree/master/ImprovedScanInfo
+The source code can be found here : https://github.com/KnifeOnlyI/SubnauticaMods/tree/master/ImprovedScanInfo_BZ
