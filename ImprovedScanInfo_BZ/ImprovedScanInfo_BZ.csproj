@@ -53,12 +53,6 @@
     <ItemGroup>
         <Compile Include="ImprovedScanInfo_BZ\**\*.cs"/>
     </ItemGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\ModTranslationHelper\ModTranslationHelper.csproj">
-            <Project>{284b38b5-2716-4f6c-8588-023033dd059c}</Project>
-            <Name>ModTranslationHelper</Name>
-        </ProjectReference>
-    </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
          Other similar extension points exist, see Microsoft.Common.targets.

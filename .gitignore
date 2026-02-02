@@ -9,6 +9,10 @@ riderModule.iml
 /_ReSharper.Caches/
 KOISubnauticaMods.sln.DotSettings.user
 
+# Visual Studio files
+*.vs
+*.csproj.user
+
 # Windows tools
 
 **/deploy_local.bat

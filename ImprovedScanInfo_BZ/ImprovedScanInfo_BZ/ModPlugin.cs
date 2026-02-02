@@ -1,4 +1,4 @@
-﻿using BepInEx;
+using BepInEx;
 using HarmonyLib;
 
 namespace Koi.Subnautica.ImprovedScanInfo_BZ
@@ -18,7 +18,6 @@ namespace Koi.Subnautica.ImprovedScanInfo_BZ
         {
             ModLogger.Init(Logger);
             ModConfig.Init(Config);
-            ModTranslations.UpdateInGameTranslations();
 
             Harmony.PatchAll();
         }
