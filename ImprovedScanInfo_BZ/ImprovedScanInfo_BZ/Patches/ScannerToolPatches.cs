@@ -15,7 +15,7 @@ namespace Koi.Subnautica.ImprovedScanInfo_BZ.Patches
         /// </summary>
         /// <param name="___energyMixin">Injected: the power status of the scanner tool the player is holding</param>
         [HarmonyPatch("OnHover"), HarmonyPostfix]
-        internal static void OnHover(EnergyMixin ___energyMixin, ScannerTool.ScanState ___stateCurrent)
+        internal static void OnHover(EnergyMixin ___energyMixin)
         {
             if (___energyMixin.charge <= 0f) return;
 
