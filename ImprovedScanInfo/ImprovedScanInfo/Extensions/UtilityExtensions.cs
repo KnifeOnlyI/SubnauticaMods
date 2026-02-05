@@ -15,7 +15,7 @@ namespace Koi.Subnautica.ImprovedScanInfo.Extensions
         /// <returns><c>true</c> if the conditions stated in the summary are met; <c>false</c> otherwise</returns>
         internal static bool IsScanCompleteFragment(this PDAScanner.ScanTarget scanTarget)
         {
-            PDAScanner.EntryData entryData = PDAScanner.GetEntryData(scanTarget.techType);
+            var entryData = PDAScanner.GetEntryData(scanTarget.techType);
             return entryData.isFragment && entryData.key.IsBlueprintAlreadySynthesized();
         }
 
