@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using HarmonyLib;
 
-namespace Koi.Subnautica.ImprovedScanInfo_BZ.Utility
+namespace Koi.Subnautica.ImprovedScanInfo_BZ.Extensions
 {
     /// <summary>
     /// Utility extension methods used in multiple patch files.
@@ -15,7 +15,7 @@ namespace Koi.Subnautica.ImprovedScanInfo_BZ.Utility
         /// <returns><c>true</c> if the conditions stated in the summary are met; <c>false</c> otherwise</returns>
         internal static bool IsScanCompleteFragment(this PDAScanner.ScanTarget scanTarget)
         {
-            PDAScanner.EntryData entryData = PDAScanner.GetEntryData(scanTarget.techType);
+            var entryData = PDAScanner.GetEntryData(scanTarget.techType);
             return entryData.isFragment && entryData.key.IsBlueprintAlreadySynthesized();
         }
 
@@ -24,7 +24,7 @@ namespace Koi.Subnautica.ImprovedScanInfo_BZ.Utility
         /// </summary>
         /// <param name="techType">The tech type of the blueprint to check</param>
         /// <returns>TRUE if the specified tech type blueprint has been already synthesized, FALSE otherwise</returns>
-        internal static bool IsBlueprintAlreadySynthesized(this TechType techType)
+        private static bool IsBlueprintAlreadySynthesized(this TechType techType)
         {
             return new Traverse(typeof(PDAScanner))
                 .Field<HashSet<TechType>>("complete").Value
