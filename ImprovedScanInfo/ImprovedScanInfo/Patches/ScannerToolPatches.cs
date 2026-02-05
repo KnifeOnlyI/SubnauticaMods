@@ -20,7 +20,7 @@ namespace Koi.Subnautica.ImprovedScanInfo.Patches
         {
             if (___energyMixin.charge <= 0f || ___stateCurrent == ScannerTool.ScanState.SelfScan) return;
 
-            PDAScanner.ScanTarget target = PDAScanner.scanTarget;
+            var target = PDAScanner.scanTarget;
 
             if (!target.IsValidScanTarget() || !target.IsScanCompleteFragment()) return;
 
