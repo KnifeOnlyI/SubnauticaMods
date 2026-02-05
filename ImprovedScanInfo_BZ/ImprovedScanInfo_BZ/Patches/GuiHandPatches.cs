@@ -1,5 +1,6 @@
-using System.Collections.Generic;
 using HarmonyLib;
+using Koi.Subnautica.ImprovedScanInfo_BZ.Utility;
+using UnityEngine;
 
 namespace Koi.Subnautica.ImprovedScanInfo_BZ.Patches
 {
@@ -14,32 +15,21 @@ namespace Koi.Subnautica.ImprovedScanInfo_BZ.Patches
         /// </summary>
         [HarmonyPatch("OnUpdate")]
         [HarmonyPostfix]
-        public static void OnUpdate()
+        public static void OnUpdate(GameObject ___activeTarget)
         {
             if (!ModConfig.ConfigEnabled.Value) return;
 
-            var scanTarget = PDAScanner.scanTarget;
-            var entryData = PDAScanner.GetEntryData(scanTarget.techType);
+            // Display hint text only if the player is within "interaction range" of an object.
+            // (Scanner tool patch will display hint at a longer range if the player is holding a scanner tool.)
+            if (___activeTarget == null) return;
 
-            if (entryData is not { isFragment: true } || !IsBlueprintAlreadySynthetized(scanTarget.techType)) return;
+            if (!PDAScanner.scanTarget.IsScanCompleteFragment()) return;
 
             HandReticle.main.SetText(
                 HandReticle.TextType.HandSubscript,
                 ModConstants.Translations.Keys.BlueprintAlreadySynthesized,
                 translate: true
             );
-        }
-
-        /// <summary>
-        /// Check if the specified tech type blueprint has been already synthetized.
-        /// </summary>
-        /// <param name="techType">The tech type of the blueprint to check</param>
-        /// <returns>TRUE if the specified tech type blueprint has been already synthetized, FALSE otherwise</returns>
-        private static bool IsBlueprintAlreadySynthetized(TechType techType)
-        {
-            return new Traverse(typeof(PDAScanner))
-                .Field<HashSet<TechType>>("complete").Value
-                .Contains(techType);
         }
     }
 }
