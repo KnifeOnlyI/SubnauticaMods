@@ -24,7 +24,7 @@ namespace Koi.Subnautica.ImprovedScanInfo.Extensions
         /// </summary>
         /// <param name="techType">The tech type of the blueprint to check</param>
         /// <returns>TRUE if the specified tech type blueprint has been already synthesized, FALSE otherwise</returns>
-        internal static bool IsBlueprintAlreadySynthesized(this TechType techType)
+        private static bool IsBlueprintAlreadySynthesized(this TechType techType)
         {
             return new Traverse(typeof(PDAScanner))
                 .Field<HashSet<TechType>>("complete").Value
