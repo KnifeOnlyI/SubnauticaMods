@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using HarmonyLib;
 
-namespace Koi.Subnautica.ImprovedScanInfo.Utility
+namespace Koi.Subnautica.ImprovedScanInfo.Extensions
 {
     /// <summary>
     /// Utility extension methods used in multiple patch files.
