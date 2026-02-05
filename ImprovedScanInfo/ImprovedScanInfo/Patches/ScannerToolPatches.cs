@@ -27,7 +27,8 @@ namespace Koi.Subnautica.ImprovedScanInfo.Patches
             HandReticle.main.SetText(
                 HandReticle.TextType.HandSubscript,
                 ModConstants.Translations.Keys.BlueprintAlreadySynthesized,
-                translate: true);
+                translate: true
+            );
         }
 
         /// <summary>
